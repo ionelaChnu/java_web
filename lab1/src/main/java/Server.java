@@ -23,12 +23,6 @@ public class Server extends Thread {
                 Socket client = this.serverSocket.accept();
                 System.out.println("Connection accepted from " + client.getInetAddress().getHostAddress());
                 Connection connection = new Connection(client);
-//                BufferedReader fromClient = new BufferedReader(new InputStreamReader(client.getInputStream()));
-//                String message = fromClient.readLine();
-//                System.out.println(message);
-//                ObjectOutputStream out = new ObjectOutputStream(client.getOutputStream());
-//                out.writeBytes("Hui " + message);
-//                out.close();
             }
         } catch (Exception e) {
             e.printStackTrace();

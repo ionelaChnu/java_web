@@ -37,23 +37,5 @@ public class Client {
         printStream.close();
         bufferedReader.close();
         stdin.close();
-
-//        try {
-//            Socket socket = new Socket("localhost", 1500);
-//            System.out.println("Type your symbols......");
-//            BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
-//            String line = stdin.readLine();
-//            System.out.println("Entered: " + line + "\n");
-//            ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
-//            outputStream.writeBytes(line);
-//            ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
-//            String message = inputStream.readLine();
-//            System.out.println(message);
-//        } catch (UnknownHostException e) {
-//            System.err.println("Unidentified hostname ");
-//            System.exit(1);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
 }
