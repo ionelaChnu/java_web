@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://DefaultNamespace" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://DefaultNamespace" xmlns:intf="http://DefaultNamespace" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://DefaultNamespace" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getStudentNamesWithOnlyHightGrades">
+    <complexType/>
+   </element>
+   <element name="getStudentNamesWithOnlyHightGradesResponse">
+    <complexType>
+     <sequence>
+      <element name="getStudentNamesWithOnlyHightGradesReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_xsd_anyType">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <element name="getAllStudents">
+    <complexType/>
+   </element>
+   <element name="getAllStudentsResponse">
+    <complexType>
+     <sequence>
+      <element name="getAllStudentsReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getStudentNamesWithOnlyHightGradesRequest">
+
+      <wsdl:part element="impl:getStudentNamesWithOnlyHightGrades" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllStudentsRequest">
+
+      <wsdl:part element="impl:getAllStudents" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllStudentsResponse">
+
+      <wsdl:part element="impl:getAllStudentsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getStudentNamesWithOnlyHightGradesResponse">
+
+      <wsdl:part element="impl:getStudentNamesWithOnlyHightGradesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="StudentWS">
+
+      <wsdl:operation name="getStudentNamesWithOnlyHightGrades">
+
+         <wsdl:input message="impl:getStudentNamesWithOnlyHightGradesRequest" name="getStudentNamesWithOnlyHightGradesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getStudentNamesWithOnlyHightGradesResponse" name="getStudentNamesWithOnlyHightGradesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllStudents">
+
+         <wsdl:input message="impl:getAllStudentsRequest" name="getAllStudentsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAllStudentsResponse" name="getAllStudentsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="StudentWSSoapBinding" type="impl:StudentWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getStudentNamesWithOnlyHightGrades">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getStudentNamesWithOnlyHightGradesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getStudentNamesWithOnlyHightGradesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllStudents">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAllStudentsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAllStudentsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="StudentWSService">
+
+      <wsdl:port binding="impl:StudentWSSoapBinding" name="StudentWS">
+
+         <wsdlsoap:address location="http://localhost:8080/StudentService/services/StudentWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

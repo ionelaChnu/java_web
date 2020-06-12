@@ -1,0 +1,69 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from StudentWSService WSDL service -->
+
+  <service name="StudentWS" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://DefaultNamespace"/>
+      <parameter name="wsdlServiceElement" value="StudentWSService"/>
+      <parameter name="schemaQualified" value="http://DefaultNamespace"/>
+      <parameter name="wsdlServicePort" value="StudentWS"/>
+      <parameter name="className" value="DefaultNamespace.StudentWSSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="StudentWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getStudentNamesWithOnlyHightGrades" qname="operNS:getStudentNamesWithOnlyHightGrades" xmlns:operNS="http://DefaultNamespace" returnQName="retNS:getStudentNamesWithOnlyHightGradesReturn" xmlns:retNS="http://DefaultNamespace" returnType="rtns:ArrayOf_xsd_anyType" xmlns:rtns="http://DefaultNamespace" returnItemQName="tns:item" xmlns:tns="http://DefaultNamespace" soapAction="" >
+      </operation>
+      <operation name="getAllStudents" qname="operNS:getAllStudents" xmlns:operNS="http://DefaultNamespace" returnQName="retNS:getAllStudentsReturn" xmlns:retNS="http://DefaultNamespace" returnType="rtns:ArrayOf_xsd_anyType" xmlns:rtns="http://DefaultNamespace" returnItemQName="tns:item" xmlns:tns="http://DefaultNamespace" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="getAllStudents getStudentNamesWithOnlyHightGrades"/>
+
+      <typeMapping
+        xmlns:ns="http://DefaultNamespace"
+        qname="ns:>getStudentNamesWithOnlyHightGradesResponse"
+        type="java:DefaultNamespace.GetStudentNamesWithOnlyHightGradesResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://DefaultNamespace"
+        qname="ns:ArrayOf_xsd_anyType"
+        type="java:java.lang.Object[]"
+        innerType="cmp-ns:anyType" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://DefaultNamespace"
+        qname="ns:>getStudentNamesWithOnlyHightGrades"
+        type="java:DefaultNamespace.GetStudentNamesWithOnlyHightGrades"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://DefaultNamespace"
+        qname="ns:>getAllStudents"
+        type="java:DefaultNamespace.GetAllStudents"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://DefaultNamespace"
+        qname="ns:>getAllStudentsResponse"
+        type="java:DefaultNamespace.GetAllStudentsResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>
